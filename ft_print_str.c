@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raviz-es <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 14:31:00 by raviz-es          #+#    #+#             */
-/*   Updated: 2024/01/14 19:31:16 by raviz-es         ###   ########.fr       */
+/*   Created: 2024/01/14 15:54:45 by raviz-es          #+#    #+#             */
+/*   Updated: 2024/01/14 19:39:25 by raviz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include <stddef.h>
-# include <stdlib.h>
+#include "ft_printf.h"
 
-int	ft_print_c(int c);
-int	ft_print_s(char *s);
-int	ft_print_n(int n);
-int	ft_print_u(unsigned int n);
-int	ft_print_p(unsigned long int p);
-int	ft_print_x(unsigned int x, char c);
-int	ft_check(const char *format, va_list ap);
-int	ft_printf(const char *format, ...);
+int	ft_print_c(int c)
+{
+	return ((int)write(1, &c, 1));
+}
 
-#endif
+int	ft_print_s(char *s)
+{
+	int		len;
+
+	len = 0;
+	if (!s)
+		return ((int)write(1, "(null)", 6));
+	while (*s)
+	{
+		len += (int)write(1, s, 1);
+		s++;
+	}
+	return (len);
+}
