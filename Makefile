@@ -6,15 +6,19 @@
 #    By: raviz-es <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/07 14:29:16 by raviz-es          #+#    #+#              #
-#    Updated: 2024/01/14 19:41:11 by raviz-es         ###   ########.fr        #
+#    Updated: 2024/01/14 20:07:31 by raviz-es         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_print_hex.c ft_print_num.c ft_print_str.c ft_printf.c
-OBJS = $(SRCS:.c=.o)
-CC = cc
+NAME	= libftprintf.a
+
+SRCS	= ft_print_hex.c ft_print_num.c ft_print_str.c ft_printf.c
+
+OBJS	= $(SRCS:.c=.o)
+
+CFLAGS	= -Wall -Wextra -Werror
+
+CC 		= cc
 
 all: $(NAME)
 
