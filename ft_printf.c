@@ -6,7 +6,7 @@
 /*   By: raviz-es <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:30:41 by raviz-es          #+#    #+#             */
-/*   Updated: 2024/01/14 16:50:39 by raviz-es         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:14:52 by raviz-es         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ int	ft_check(const char *format, va_list ap)
 		len = ft_print_c(va_arg(ap, int));
 	else if (*format == 's')
 		len = ft_print_s(va_arg(ap, char *));
-	else if (*format == 'd' || *format == 'i')
-		len = ft_print_d(va_arg(ap, int));
 	else if (*format == 'p')
 		len = ft_print_p(va_arg(ap, unsigned long int));
+	else if (*format == 'd' || *format == 'i')
+		len = ft_print_n(va_arg(ap, int));
+	else if (*format == 'u')
+		len = ft_print_u(va_arg(ap, unsigned int));
 	else if (*format == 'x' || *format == 'X')
-		len = ft_print_x(va_arg(ap, unsigned int));
+		len = ft_print_x(va_arg(ap, unsigned int), *format);
 	else if (*format == '%')
 		len = (int)write(1, "%", 1);
 	else
